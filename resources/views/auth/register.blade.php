@@ -40,6 +40,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -58,6 +72,20 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="accepted_terms_at" class="col-md-4 col-form-label text-md-right">{{ __('Accept Terms and Conditions') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="accepted_terms_at" type="checkbox" class="form-control @error('accepted_terms_at') is-invalid @enderror" name="accepted_terms_at" value="{{ old('accepted_terms_at') ? old('accepted_terms_at') : 'yes' }}" required autocomplete="accepted_terms_at">
+
+                                @error('accepted_terms_at')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
